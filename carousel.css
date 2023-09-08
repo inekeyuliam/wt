@@ -1,0 +1,552 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	color: #5a5a5a;
+  }
+.navbar{
+	padding: 0 160px;
+}
+.cta{
+	gap:39px;
+}
+.menu{
+	gap: 120px;
+}  
+  /* CUSTOMIZE THE CAROUSEL
+  -------------------------------------------------- */
+  
+  /* Carousel base class */
+  #myCarousel{
+	padding-top: 125px;
+  }
+  .carousel {
+	margin-bottom: 40px;
+  }
+  .carousel-item{
+	height: 32rem !important;
+  }
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+	bottom: 3rem;
+	z-index: 10;
+  }
+  
+  /* Declare heights because of positioning of img element */
+  .carousel-item {
+	height: 42rem;
+	background-color: #777;
+  }
+  .carousel-item > img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 100%;
+  }
+  
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust the top margin as needed */
+  }
+
+  .carousel-indicators li {
+    width: 14px; /* Set the width and height to make it a circle */
+    height: 14px;
+    border-radius: 50%; /* Make it a circle */
+    background-color: transparent; /* Color of the indicator */
+    border: 2px solid #fff; /* Optional border style */
+    margin: 0 7px; /* Adjust the margin to control the space between circles */
+    cursor: pointer; /* Add cursor style to indicate interactivity */
+  }
+
+  .carousel-indicators .active {
+    background-color: #fff; /* Color of the active indicator */
+  }
+  /* CSS to center the navigation controls */
+.owl-nav {
+	position: absolute;
+	top: 20%;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.owl-next, .owl-prev{
+	border-radius: 4px;
+	background: var(--Watches---Harvest-Gold, #D39000 ) !important;
+	box-shadow: 0px 6px 12px 0px rgba(225, 111, 39, 0.40);
+	color: white !important;
+	padding:6px 12px !important;
+}
+.owl-next:focus, .owl-prev:focus{
+	outline: unset !important;
+}
+.owl-carousel.custom-owl-carousel .owl-nav button.owl-prev,
+.owl-carousel.custom-owl-carousel .owl-nav button.owl-next {
+	padding: 15px !important; /* Customize the padding as needed */
+}
+.owl-nav button {
+	background: transparent;
+	font-size: 24px;
+	color: #333;
+	border: none;
+	cursor: pointer;
+}
+.owl-item-text {
+	text-align: center;
+	padding: 10px;
+	padding-top:18px
+}
+.owl-item-text h3 {
+	color: var(--Web-Black, #100C08);
+	text-align: center;
+	font-family: Inter;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px; /* 171.429% */
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	margin:0px;
+}
+.owl-item-text p {
+	padding: 16px 0;
+	color: var(--Web-Black, #100C08);
+	text-align: center;
+	font-family: Inter;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 16px; /* 160% */
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin:0px;
+
+}
+.owl-item-text .desc {
+	color: var(--Web-Black, #100C08);
+	text-align: center;
+	font-family: Inter;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 181.818% */
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin:0px;
+}
+ .owl-item-text .price {
+	padding-top: 12px;
+	color: var(--Grey, #6A6A6A);
+	text-align: center;
+	font-family: Inter;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px; /* 142.857% */
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin:0px;
+}
+
+.row-view{
+	padding-bottom: 60px;
+}
+
+.view-all-button{
+	border-radius: 4px;
+	border: 1px solid var(--Watches---Harvest-Gold, #D39000);
+	background: var(--Watches---Harvest-Gold, #D39000);
+	color: white;
+	padding: 13px 36px;
+	color: var(--Watches---Pearl, #FFFCF8);
+	text-align: center;
+	font-family: Inter;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px; /* 160% */
+}
+.container-banner-1{
+	padding-top: 100px;
+	padding-bottom: 100px;
+	gap: 51px;
+}
+.container-benefit{
+	background: var(--Watches---Platinum, #E7E5DF);
+	padding-top: 80px;
+	padding-bottom: 100px;
+	display: flex;
+	justify-content: center;
+
+}
+.container-catalog{
+	padding-bottom: 60px;
+	display: flex;
+	justify-content: center;
+}
+.container-catalog .container-inside .d-flex{
+	gap: 20px;
+}
+
+.explore-collection h3,
+.offer h3,
+.satisfied-buyer h3,
+.watch-fame h3,
+.featured-article h3{
+	color: var(--Watches---Cedar, #483729);
+	text-align: center;
+
+	/* section title */
+	font-family: Inter;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px; /* 133.333% */
+	text-transform: uppercase;
+}
+.explore-collection h3 > span,
+.offer h3 > span,
+.satisfied-buyer h3 > span,
+.watch-fame h3 > span,
+.featured-article h3 > span{
+	color: var(--Watches---Harvest-Gold, #D39000);
+}
+.explore-collection, .offer, .satisfied-buyer, .watch-fame, .featured-article{
+	padding-top: 40px;
+	padding-bottom: 32px;
+}
+
+.container-offer,.container-review, .container-fame{
+	padding-bottom: 60px;
+}
+.container-inside{
+	max-width: 1140px;
+}
+.box-benefit{
+	padding: 22px;
+}
+
+.box-benefit .d-flex,
+.container-review .d-flex{
+	gap: 20px;
+}
+
+.box-review{
+	display: flex;
+	border-radius: 16px;
+	background: var(--Watches---Platinum, #E7E5DF);
+	gap: 16px;
+	padding: 30px 16px;
+}
+.review-desc-1{
+	margin-bottom: 1rem;
+}
+.review-desc-1 > .title{
+	color: #03181C;
+	font-family: Inter;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 22px; /* 157.143% */
+	margin: 0;
+}
+.review-desc-1 > .title > span{
+	font-weight: 400 !important;
+}
+.review-desc-1 > .detail{
+	color: #03181C;
+	font-family: Inter;
+	font-size: 12px;
+	font-style: normal;
+	line-height: 22px; /* 157.143% */
+	margin: 0;
+}
+.review-desc-2 p{
+	color: #03181C;
+	font-family: Inter;
+	font-size: 14px;
+	font-style: italic;
+	font-weight: 500;
+	line-height: 22px; /* 157.143% */
+} 
+.review-author p{
+	color: #03181C;
+	font-family: Inter;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 22.4px; /* 160% */
+	letter-spacing: 0.14px;
+}
+.label-title{
+	color: var(--Web-Black, #100C08);
+	text-align: center;
+	margin: 0px;
+	/* USP title sec */
+	font-family: Inter;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 28px; /* 116.667% */
+}
+.label-desc{
+	color: var(--Web-Black, #100C08);
+	text-align: center;
+	margin: 0px;
+	/* desc text */
+	font-family: Inter;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px; /* 181.818% */
+	letter-spacing: 2px;
+}
+.text-article{
+	text-align: left !important;
+}
+.text-article h3{
+	color: var(--Web-Black, #100C08);
+	text-align: left !important;
+
+	/* section title */
+	font-family: Inter;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px; /* 133.333% */
+	text-transform: uppercase;
+	padding-bottom: 16px;
+}
+.text-article .desc{
+	color: var(--Web-Black, #100C08);
+	text-align: left !important;
+
+	/* desc text */
+	font-family: Inter;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px; /* 181.818% */
+	letter-spacing: 2px;
+	padding-bottom: 30px;
+
+}
+.text-article a{
+	color: var(--Watches---Harvest-Gold, #D39000);
+	font-feature-settings: 'ss03' on, 'ss01' on, 'salt' on;
+	text-align: left !important;
+
+	/* Buttons */
+	font-family: Inter;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 22px; /* 146.667% */
+	letter-spacing: 1px;
+	text-transform: capitalize;
+}
+.article-carousel .item{
+	padding-right: 20px;
+}
+  /* MARKETING CONTENT
+  -------------------------------------------------- */
+  .brand-items{
+	padding-top: 40px;
+	padding-bottom: 40px;
+  }
+  .top-brands{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	gap: 8px 0px;
+	align-self: stretch;
+	flex-wrap: wrap;
+	
+  }
+  .top-brands-name{
+	display: flex;
+	padding: 4px 8px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	color: var(--Web-Black, #100C08);
+	text-align: center;
+	font-family: Inter;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px; /* 100% */
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	background-color: transparent;
+	border: none;
+	text-decoration: unset;
+	cursor: pointer;
+
+  }
+  .top-brands-name:hover {
+	text-decoration: none;
+  }
+  .top-brands  > span{
+	display: flex;
+	padding: 4px 16px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+  }
+  .top-brands .active{
+	border-radius: 4px;
+	background: var(--Watches---Harvest-Gold, #D39000);
+	color: var(--Watches---Pearl, #FFFCF8);
+	text-align: center;
+	font-family: Inter;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px; /* 100% */
+	letter-spacing: 1px;
+	text-transform: uppercase;
+  }
+  /* Center align the text within the three columns below the carousel */
+  .marketing .col-lg-4 {
+	margin-bottom: 1.5rem;
+	text-align: center;
+  }
+  .marketing h2 {
+	font-weight: 400;
+  }
+  .marketing .col-lg-4 p {
+	margin-right: .75rem;
+	margin-left: .75rem;
+  }
+  
+  
+  /* Featurettes
+  ------------------------- */
+  
+  .featurette-divider {
+	margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+  .lead{
+	color: var(--Sub-Text, #444F54);
+
+	/* body text */
+	font-family: Inter;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 30px; /* 200% */
+  }
+  /* Thin out the marketing headings */
+  .featurette-heading {
+	color: var(--Web-Black, #100C08);
+
+	/* Secondary title */
+	font-family: Inter;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 40px; /* 133.333% */
+	letter-spacing: 1px;
+	text-transform: uppercase;
+  }
+  .featurette-heading span{
+	color: var(--Watches---Harvest-Gold, #D39000);
+
+	/* Secondary title */
+	font-family: Inter;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 40px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+  }
+  .navbar-brand{
+	margin-right: 0px;
+  }
+  .notif{
+	text-transform: uppercase;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+  }
+  .search-nav{
+	color: #707070;
+	font-family: 'Inter', sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px; /* 160% */
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: transparent;
+    background-clip: padding-box;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+	width: 209px;
+
+  }
+  .notif p{
+	color: var(--Grey, #6A6A6A);
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 22px; /* 220% */
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-bottom: 0px;
+  }
+  .nav-2{
+	padding-bottom: 20px;
+	gap:506px;
+  }
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  @media (max-width: 768px) {
+	.navbar{
+		padding: 0px;
+	}
+	.notif p{
+		font-size: 10px;
+	}
+  }
+  @media (min-width: 40em) {
+	/* Bump up size of carousel content */
+	.carousel-caption p {
+	  margin-bottom: 1.25rem;
+	  font-size: 1.25rem;
+	  line-height: 1.4;
+	}
+	.navbar{
+		padding: 0px;
+	}
+	.featurette-heading {
+	  /* font-size: 50px; */
+	}
+  }
+  
+  @media (min-width: 62em) {
+	.featurette-heading {
+	  /* margin-top: 7rem; */
+	}
+	.navbar{
+		padding: 0px;
+	}
+  }
+  
