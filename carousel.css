@@ -223,10 +223,7 @@ body {
 .featured-article h3 > span{
 	color: var(--Watches---Harvest-Gold, #D39000);
 }
-.explore-collection, .offer, .satisfied-buyer, .watch-fame, .featured-article{
-	padding-top: 40px;
-	padding-bottom: 32px;
-}
+
 .experts{
 	padding-top: 80px;
 	padding-bottom: 32px;
@@ -481,7 +478,6 @@ body {
 	text-transform: uppercase;
 	display: flex;
 	align-items: center;
-	padding: 10px;
   }
   .search-nav{
 	color: #707070;
@@ -627,6 +623,9 @@ body {
   /* RESPONSIVE CSS
   -------------------------------------------------- */
   @media (max-width: 768px) {
+	.notif{
+		padding-top: 4px;
+	}
 	.navbar{
 		padding: 0px;
 	}
@@ -662,6 +661,25 @@ body {
 	.container-detail .wrapper{
 		display: none;
 	}
+	.container-filter{
+		align-items: start !important;
+		padding: 52px 20px !important;
+	}
+	.container-section{
+		height: 220px;
+		background-image: url('assets/img/section-mobile.png');
+	}
+	.wrap-filter{
+		gap: 20px;
+	}
+	.container-item-product{
+		gap: 40px;
+		padding-bottom: 40px;
+	}
+	.explore-collection, .offer, .satisfied-buyer, .watch-fame, .featured-article{
+		padding: 40px 32px;
+	}
+	
   }
   @media (min-width: 40em) {
 	/* Bump up size of carousel content */
@@ -679,6 +697,9 @@ body {
   }
   
   @media (min-width: 62em) {
+	.notif{
+		padding: 10px;
+	}
 	.featurette-heading {
 	  /* margin-top: 7rem; */
 	}
@@ -687,6 +708,27 @@ body {
 	}
 	.map-img{
 		width: 600px;
+	}
+	.container-section{
+		height: 220px;
+		background-image: url('assets/img/section-banner.png');
+	}
+	.wrap-filter{
+		gap: 50px
+	}
+	.item-product{
+		width: 230px;
+	}
+	.container-item-product{
+		gap: 30px;
+		padding-bottom: 40px;
+	}
+	.container-item-product .item{
+		width: 250px;
+	}
+	.explore-collection, .offer, .satisfied-buyer, .watch-fame, .featured-article{
+		padding-top: 40px;
+		padding-bottom: 32px;
 	}
   }
 
@@ -1282,3 +1324,71 @@ body {
 		font-weight: 500;
 		line-height: 20.4px; /* 120% */
 	}
+	.container-filter{
+		gap: 20px;
+		padding: 52px 0px;
+	}
+	.fluid-filter{
+		background: var(--Watches---Platinum, #E7E5DF);
+
+	}
+
+	.container-filter .label{
+		color: var(--Web-Black, #100C08);
+
+		/* section title */
+		font-family: Inter;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 32px; /* 133.333% */
+		text-transform: uppercase;
+	}
+	.dropdown-newest,
+	.dropdown-brands,
+	.dropdown-categories,
+	.dropdown-conditions,
+	.dropdown-price-range,
+	.dropdown-location{
+		color: var(--Web-Black, #100C08);
+
+		/* body text */
+		font-family: Inter;
+		font-size: 15px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 30px; /* 200% */
+	}
+	.dropdown-newest .btn-secondary,
+	.dropdown-brands .btn-secondary,
+	.dropdown-categories .btn-secondary,
+	.dropdown-conditions .btn-secondary,
+	.dropdown-price-range .btn-secondary,
+	.dropdown-location .btn-secondary{
+		background: transparent;
+		color: var(--Web-Black, #100C08);
+		border: unset;
+		/* body text */
+		font-family: Inter;
+		font-size: 15px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 30px; /* 200% */
+		padding: 0px;
+	}
+	.btn-filter{
+		padding: 13px 36px;
+		border-radius: 4px;
+		border: 1px solid var(--Watches---Harvest-Gold, #D39000);
+		background: var(--Watches---Harvest-Gold, #D39000);
+		color: var(--Watches---Pearl, #FFFCF8);
+		text-align: center;
+		font-family: Inter;
+		font-size: 15px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 24px; /* 160% */
+		max-width: 350px;
+
+	}
+	
