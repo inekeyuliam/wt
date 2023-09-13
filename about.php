@@ -1,6 +1,6 @@
 <?php
-
-header('Content-Type: text/html; charset=utf-8');
+    include 'init.php';
+	header('Content-Type: text/html; charset=utf-8');
 
 // var_dump(mysqli_fetch_array($sql_banner));exit;
 ?>
@@ -17,7 +17,7 @@ header('Content-Type: text/html; charset=utf-8');
 		<?php include 'page-header.php'; ?>
 
 
-		<main role="main">
+		<main role="main" class="content">
 
 			<div class="container-banner-about d-flex  flex-column flex-md-row justify-content-center container-fluid">
 				<div class="container-inside-about flex-column flex-md-row  d-flex ">
@@ -42,34 +42,34 @@ header('Content-Type: text/html; charset=utf-8');
 			</div>
 			<div class="container-catalog container-fluid">
 				<div class="container-inside">
-					<div class="row d-flex justify-content-center">
+					<div class="d-flex flex-wrap container justify-content-center about">
 						<div class="box-expert d-flex flex-column justify-content-center">
-							<img src="assets/img/experts-1.png" style="height: 400px;width: 300px;">
+							<img src="assets/img/experts-1.png"  >
 							<p class="name">john doe</p>
 							<p class="level">co founder</p>
 						</div>
 						<div class="box-expert d-flex flex-column justify-content-center">
-							<img src="assets/img/experts-2.png" style="height: 400px;width: 300px;">
+							<img src="assets/img/experts-2.png"  >
 							<p class="name">john doe</p>
 							<p class="level">co founder</p>
 						</div>
 						<div class="box-expert d-flex flex-column justify-content-center">
-							<img src="assets/img/experts-3.png" style="height: 400px;width: 300px;">
+							<img src="assets/img/experts-3.png"  >
 							<p class="name">john doe</p>
 							<p class="level">co founder</p>
 						</div>
 						<div class="box-expert d-flex flex-column justify-content-center">
-							<img src="assets/img/experts-1.png" style="height: 400px;width: 300px;">
+							<img src="assets/img/experts-1.png"  >
 							<p class="name">john doe</p>
 							<p class="level">co founder</p>
 						</div>
 						<div class="box-expert d-flex flex-column justify-content-center">
-							<img src="assets/img/experts-2.png" style="height: 400px;width: 300px;">
+							<img src="assets/img/experts-2.png"  >
 							<p class="name">john doe</p>
 							<p class="level">co founder</p>
 						</div>
 						<div class="box-expert d-flex flex-column justify-content-center">
-							<img src="assets/img/experts-3.png" style="height: 400px;width: 300px;">
+							<img src="assets/img/experts-3.png"  >
 							<p class="name">john doe</p>
 							<p class="level">co founder</p>
 						</div>
@@ -191,7 +191,7 @@ header('Content-Type: text/html; charset=utf-8');
 				<div class="d-flex flex-column address">
 					<p class="email">email : info@watchestrader.com </p>
 					<p class="or"> or</p>
-					<button class="btn-primary whatsapp">whatsapp </p>
+					<a type="button"  href="https://wa.me/6281234560784" target="_blank" class="btn-primary whatsapp">whatsapp </a>
 				</div>
 				<p class="detail">
 				Please contact us on this page to schedule a visit click the button or email us !
@@ -215,7 +215,7 @@ header('Content-Type: text/html; charset=utf-8');
 							<p class="hours">
 							Monday to Friday : 10.00 - 22.00<br><br>
 							Saturday / Sunday: 10.00 - 21.00 </p>
-							<button class="btn-visit-us">visit us</button>
+							<a href="https://www.google.com/maps/dir//Pakuwon+Trade+Center+Jl.+Raya+Lontar+No.2+Babatan+Wiyung,+Surabaya,+East+Java+60123/@-7.2907213,112.6742437,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x2dd7fd9837199ca5:0x8c8393b71a3c843e" target="_blank" class="btn-visit-us">visit us</a>
 						</div>
 					</div>
 					
@@ -267,14 +267,14 @@ header('Content-Type: text/html; charset=utf-8');
 			</div>
 
 			<div class="d-flex  flex-column flex-md-row  social-media justify-content-between">
-			<div class="d-flex sosmed-left">
-				<img src="assets/img/fb.png" style="height: 14px;width: 14px;"/>
-				<img src="assets/img/ig.png" style="height: 14px;width: 14px;"/>
-				<img src="assets/img/yt.png" style="height: 14px;width: 14px;"/>
-			</div>
-			<div class="d-flex sosmed-right">
-				<img src="assets/img/wa.png" style="height: 34px;width: 34px;"/>
-			</div>
+				<div class="d-flex sosmed-left">
+					<a href="https://www.instagram.com/watches.trader/" target="_blank"><img src="assets/img/fb.png" style="height: 14px;width: 14px;"/></a>
+					<a href="https://www.instagram.com/watches.trader/" target="_blank"><img src="assets/img/ig.png" style="height: 14px;width: 14px;"/></a>
+					<a href="https://www.instagram.com/watches.trader/" target="_blank"><img src="assets/img/yt.png" style="height: 14px;width: 14px;"/></a>
+				</div>
+				<div class="d-flex sosmed-right">
+					<a  href="https://wa.me/6281234560784"  target="_blank"><img src="assets/img/wa.png" style="height: 34px;width: 34px;"/></a>
+				</div>
 			</div>
 			<div class="d-flex wt-footer justify-content-between  flex-column flex-md-row ">
 			<p class="wt">&copy; Watches Traders</p>

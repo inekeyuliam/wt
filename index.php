@@ -2,12 +2,18 @@
 <html lang="en">
   <head>
   <?php include 'html-header.php'; ?>
+  <?php
 
+  include 'init.php';
+  header('Content-Type: text/html; charset=utf-8');
+
+  // var_dump(mysqli_fetch_array($sql_banner));exit;
+  ?>
   </head>
   <body>
   <?php include 'page-header.php'; ?>
 
-    <main role="main">
+  <main role="main" class="content">
 
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -16,115 +22,57 @@
           <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="first-slide" src="assets/img/banner-1.png" alt="First slide">
-          
+            <div class="carousel-item active">
+              <img class="first-slide" src="assets/img/banner-1.png" alt="First slide">
+            
+            </div>
+            <div class="carousel-item">
+              <img class="second-slide" src="assets/img/banner-2.png" alt="First slide">
+            
+            </div>
+            <div class="carousel-item">
+              <img class="third-slide" src="assets/img/banner-3.png" alt="First slide">
+            </div>
           </div>
-          <div class="carousel-item">
-            <img class="second-slide" src="assets/img/banner-2.png" alt="First slide">
-           
-          </div>
-          <div class="carousel-item">
-            <img class="third-slide" src="assets/img/banner-3.png" alt="First slide">
-          </div>
+      
         </div>
-     
-      </div>
 
 
       <!-- Marketing messaging and featurettes
       ================================================== -->
       <!-- Wrap the rest of the page in another container to center all the content. -->
 
-      <div class="container marketing">
         <div class="top-brands">
-          <button class="top-brands-name"> Patek Philippe</button> <span>/</span>
-          <button class="top-brands-name"> Patek Philippe</button> <span>/</span>
-          <button class="top-brands-name active"> Patek Philippe</button> <span>/</span>
-          <button class="top-brands-name"> Patek Philippe</button> <span>/</span>
-          <button class="top-brands-name"> Patek Philippe</button>
-
+          <?php
+            $str = 'select *from master_highlight_brands mhb  where mhb.flag = 1';
+            $sql = mysqli_query($conn,$str);
+            $i = 1;
+            while($row = mysqli_fetch_array($sql)){
+              $name = ucwords(strtolower($row['name']));
+              if($i < 3){
+                echo '<button class="top-brands-name" data-name="'.$name.'" data-id="'.$row['id'].'">'.$row['name'].'</button> <span>/</span>';
+              }else if($i == 3){
+                echo '<button class="top-brands-name active" data-name="'.$name.'"  data-id="'.$row['id'].'" >'.$row['name'].'</button> <span>/</span>';
+              }else if($i < 5){
+                echo '<button class="top-brands-name" data-name="'.$name.'"  data-id="'.$row['id'].'">'.$row['name'].'</button> <span>/</span>';
+              }else if($i == 5){
+                echo '<button class="top-brands-name" data-name="'.$name.'"  data-id="'.$row['id'].'">'.$row['name'].' </button>';
+              }else{
+                break;
+              }
+              $i++;
+            }
+                                    
+          ?>
         </div>
+        <div class="container">
         <div class="brand-items">
           <div class="custom-owl-carousel watch-carousel owl-carousel">
-            <div class="item">
-              <img src="assets/img/1.png" alt="Image 1">
-              <div class="owl-item-text">
-                <h3>Rolex</h3>
-                <p>Submariner</p>
-                <div class="desc">41mm Steel and Yellow Gold Ceramic Bezel Black Dial</div>
-                <div class="price">IDR 180.495.999</div>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/img/2.png" alt="Image 1">
-              <div class="owl-item-text">
-                <h3>Rolex</h3>
-                <p>Submariner</p>
-                <div class="desc">41mm Steel and Yellow Gold Ceramic Bezel Black Dial</div>
-                <div class="price">IDR 180.495.999</div>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/img/3.png" alt="Image 1">
-              <div class="owl-item-text">
-                <h3>Rolex</h3>
-                <p>Submariner</p>
-                <div class="desc">41mm Steel and Yellow Gold Ceramic Bezel Black Dial</div>
-                <div class="price">IDR 180.495.999</div>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/img/2.png" alt="Image 1">
-              <div class="owl-item-text">
-                <h3>Rolex</h3>
-                <p>Submariner</p>
-                <div class="desc">41mm Steel and Yellow Gold Ceramic Bezel Black Dial</div>
-                <div class="price">IDR 180.495.999</div>
-              </div>
-            </div>
-              <div class="item">
-              <img src="assets/img/1.png" alt="Image 1">
-              <div class="owl-item-text">
-                <h3>Rolex</h3>
-                <p>Submariner</p>
-                <div class="desc">41mm Steel and Yellow Gold Ceramic Bezel Black Dial</div>
-                <div class="price">IDR 180.495.999</div>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/img/2.png" alt="Image 1">
-              <div class="owl-item-text">
-                <h3>Rolex</h3>
-                <p>Submariner</p>
-                <div class="desc">41mm Steel and Yellow Gold Ceramic Bezel Black Dial</div>
-                <div class="price">IDR 180.495.999</div>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/img/3.png" alt="Image 1">
-              <div class="owl-item-text">
-                <h3>Rolex</h3>
-                <p>Submariner</p>
-                <div class="desc">41mm Steel and Yellow Gold Ceramic Bezel Black Dial</div>
-                <div class="price">IDR 180.495.999</div>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/img/2.png" alt="Image 1">
-              <div class="owl-item-text">
-                <h3>Rolex</h3>
-                <p>Submariner</p>
-                <div class="desc">41mm Steel and Yellow Gold Ceramic Bezel Black Dial</div>
-                <div class="price">IDR 180.495.999</div>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="row-view d-flex align-items-center justify-content-center">
-          <button class="view-all-button">View All Rolex</button>
+          <a href="" type="button" class="view-all-button view-all" ></a>
         </div>
-
+        </div>
 
         <div class="container-banner-1 d-flex flex-column-reverse flex-md-row align-items-center">
           <div class="d-flex flex-column">
@@ -187,7 +135,7 @@
       </div>
       <div class="container-catalog container-fluid">
         <div class="container-inside">
-          <div class="row d-flex justify-content-center">
+          <div class="catalog d-flex flex-wrap container justify-content-center">
             <div class="box-catalog">
               <img src="assets/img/vintage.png" style="height: 270px;width: 360px;">
             </div>
@@ -214,9 +162,9 @@
       </div>
       <div class="container container-offer">
         <div class="brand-items">
-          <div class="custom-owl-carousel watch-carousel owl-carousel">
+          <div class="custom-owl-carousel watch-offer-carousel owl-carousel">
             <div class="item">
-              <img src="assets/img/1.png" alt="Image 1">
+              <img src="assets/img/3.png" alt="Image 1">
               <div class="owl-item-text">
                 <h3>Rolex</h3>
                 <p>Submariner</p>
@@ -252,7 +200,7 @@
               </div>
             </div>
               <div class="item">
-              <img src="assets/img/1.png" alt="Image 1">
+              <img src="assets/img/3.png" alt="Image 1">
               <div class="owl-item-text">
                 <h3>Rolex</h3>
                 <p>Submariner</p>
@@ -290,7 +238,8 @@
           </div>
         </div>
       </div>
-      <div class="d-flex align-items-center justify-content-center satisfied-buyer">
+      <!-- Testimonial -->
+      <!-- <div class="d-flex align-items-center justify-content-center satisfied-buyer">
         <h3 >Over Thousands of <span>Satisfied Buyers</span></h3>
       </div>
       <div class="container container-review">
@@ -350,7 +299,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="d-flex align-items-center justify-content-center watch-fame">
         <h3 >the watch of <span>fame</span></h3>
       </div>
@@ -371,7 +320,7 @@
         </div>
       </div>
       <div class="row-view d-flex align-items-center justify-content-center">
-        <button class="view-all-button">Visit Our Instagram</button>
+        <a href="https://www.instagram.com/watches.trader/" target="_blank" class="view-all-button">Visit Our Instagram</a>
       </div>
       <div class="d-flex align-items-center justify-content-center featured-article">
         <h3 >featured <span>article</span></h3>
@@ -405,7 +354,6 @@
             </div>
           </div>
         </div>
-      </div>
       
     </main>
     <!-- FOOTER -->
@@ -453,13 +401,13 @@
       
       <div class="d-flex  flex-column flex-md-row  social-media justify-content-between">
         <div class="d-flex sosmed-left">
-          <img src="assets/img/fb.png" style="height: 14px;width: 14px;"/>
-          <img src="assets/img/ig.png" style="height: 14px;width: 14px;"/>
-          <img src="assets/img/yt.png" style="height: 14px;width: 14px;"/>
-        </div>
-        <div class="d-flex sosmed-right">
-          <img src="assets/img/wa.png" style="height: 34px;width: 34px;"/>
-        </div>
+					<a href="https://www.instagram.com/watches.trader/" target="_blank"><img src="assets/img/fb.png" style="height: 14px;width: 14px;"/></a>
+					<a href="https://www.instagram.com/watches.trader/" target="_blank"><img src="assets/img/ig.png" style="height: 14px;width: 14px;"/></a>
+					<a href="https://www.instagram.com/watches.trader/" target="_blank"><img src="assets/img/yt.png" style="height: 14px;width: 14px;"/></a>
+				</div>
+				<div class="d-flex sosmed-right">
+					<a  href="https://wa.me/6281234560784"  target="_blank"><img src="assets/img/wa.png" style="height: 34px;width: 34px;"/></a>
+				</div>
       </div>
       <div class="d-flex wt-footer justify-content-between  flex-column flex-md-row ">
         <p class="wt">&copy; Watches Traders</p>
@@ -573,7 +521,47 @@
 
 <script>
   $(document).ready(function(){
-    $(".watch-carousel").owlCarousel({
+    var carouselContainer = $('.watch-carousel');
+    var activeId = $('.top-brands .active').data('id');
+    var name = $('.top-brands .active').data('name');
+
+    var url = 'get_top_brands.php';
+    $('.view-all').attr('href',`collection.php?id=${activeId}`);
+    $('.view-all').html('View All '+ name)
+          
+    $.post( url, { id:activeId })
+      .done(function( data ) {
+        var html = "";
+        var obj = JSON.parse(data);
+        var itemsToRemove = 10;
+
+        // Loop through and remove the first 'itemsToRemove' items
+        for (var i = 0; i < itemsToRemove; i++) {
+          carouselContainer.trigger('remove.owl.carousel', [i, true]);
+        }
+        carouselContainer.trigger('refresh.owl.carousel');
+
+        $.each( obj.Data , function( key, value ) {          
+            html = ` 
+              <div class="item" data-id="${value.ID}">
+                <a href="detail.php?id=${value.ID}"><img src="assets/img/3.png" alt="Image 1"></a>
+                <div class="owl-item-text">
+                  <a href="detail.php?id=${value.ID}"><h3>${value.Brand}</h3></a>
+                  <p>${value.KodeBarang}</p>
+                  <a href="detail.php?id=${value.ID}"><div class="desc">${value.Nama}</div></a>
+                  <div class="price">IDR ${value.Price}</div>
+                </div>
+              </div>`;
+           
+            // Trigger the add.owl.carousel event to append the new item
+            carouselContainer.trigger('add.owl.carousel', [$(html)]);
+            
+            // Refresh the carousel to display the newly added item
+            carouselContainer.trigger('refresh.owl.carousel');
+        });
+      
+    }, "json");
+    $(".watch-offer-carousel").owlCarousel({
         items: 1, // Number of items to display on small screens
         loop: false, // Loop through the carousel
         nav: true, // Show navigation buttons
@@ -588,9 +576,9 @@
             992: {
                 items: 4 // Number of items to display on desktop screens
             }
-        }
+        },
+        
     });
-
     $(".article-carousel").owlCarousel({
         items: 1, // Number of items to display on small screens
         loop: false, // Loop through the carousel
@@ -607,5 +595,77 @@
             }
         }
     });
+    $( ".top-brands-name" ).on( "click", function() {
+      var carouselContainer = $('.watch-carousel');
+      var id = $(this).data('id');
+      var url = 'get_top_brands.php';
+
+      $('.top-brands-name').each(function() {
+          var elementId = $(this).data('id');
+          var name = $(this).data('name');
+          if (elementId == id) {
+              $('.top-brands-name').removeClass('active');
+              $(this).addClass('active');
+              $('.view-all').attr('href',`collection.php?id=${id}`);
+              $('.view-all').html('View All '+ name)
+          }
+      });
+     
+      $.post( url, { id:id })
+      .done(function( data ) {
+        var html = "";
+        var obj = JSON.parse(data);
+        var itemsToRemove = 10;
+
+        // Loop through and remove the first 'itemsToRemove' items
+        for (var i = 0; i < itemsToRemove; i++) {
+          carouselContainer.trigger('remove.owl.carousel', [i, true]);
+        }
+        carouselContainer.trigger('refresh.owl.carousel');
+
+        $.each( obj.Data , function( key, value ) {
+          console.log(value)
+          
+            html = ` 
+              <div class="item" data-id="${value.ID}">
+                <a href="detail.php?id=${value.ID}"><img src="assets/img/3.png" alt="Image 1"></a>
+                <div class="owl-item-text">
+                  <a href="detail.php?id=${value.ID}"><h3>${value.Brand}</h3></a>
+                  <p>${value.KodeBarang}</p>
+                  <a href="detail.php?id=${value.ID}"><div class="desc">${value.Nama}</div></a>
+                  <div class="price">IDR ${value.Price}</div>
+                </div>
+              </div>`;
+           
+            // Trigger the add.owl.carousel event to append the new item
+            carouselContainer.trigger('add.owl.carousel', [$(html)]);
+            
+            // Refresh the carousel to display the newly added item
+            carouselContainer.trigger('refresh.owl.carousel');
+        });
+      
+      }, "json");
+
+    });
+    $(".watch-carousel").owlCarousel({
+        items: 1, // Number of items to display on small screens
+        loop: false, // Loop through the carousel
+        nav: true, // Show navigation buttons
+        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"], // Customize the navigation buttons
+        autoplay: false, // Autoplay the carousel
+        autoplayTimeout: 3000, // Autoplay interval in milliseconds (3 seconds in this case)
+        direction: 'horizontal', // Ensure horizontal orientation
+        responsive: {
+            768: {
+                items: 1 // Number of items to display on medium screens
+            },
+            992: {
+                items: 4 // Number of items to display on desktop screens
+            }
+        },
+        
+    });
+
+   
   });
 </script>
