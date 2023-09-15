@@ -82,6 +82,7 @@ class MasterItems extends \yii\db\ActiveRecord
                 'nama',
                 'kode_barang',
             ], 'string', 'max' => 255],
+            [['id_master_jenis'],'integer']
 
         ];
     }
@@ -94,7 +95,7 @@ class MasterItems extends \yii\db\ActiveRecord
         return [
             'nama' => 'Nama',
             'kode_barang' => 'Kode',
-
+            'id_master_jenis' => 'Brand'
         ];
     }
     public function getBrand()

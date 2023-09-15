@@ -2,7 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use yii\helpers\ArrayHelper;
+use app\models\MasterItems;
+use app\models\MasterBrands;
 /* @var $this yii\web\View */
 /* @var $model app\models\MasterJenisAkta */
 
@@ -19,28 +21,47 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'title',
             [
-                'attribute' => 'image',
-                'format' => 'html',    
-                'value' => function ($data) {
-                    return Html::img('../../../data/products/'. $data['image'],
-                        ['width' => '100px']);
-                },
-            ],
-            'url'
+                'label'=>'Item',
+				'attribute' => 'id',
+                'filter' => ArrayHelper::map(MasterItems::find()->all(), 'id', 'nama'),
+				'value' => function ($data) {
+	
+					return $data->nama;
+	
+				},
+	
+			],
+            'kode_barang',
+            [
+
+				'attribute' => 'id_master_jenis',
+                'filter' => ArrayHelper::map(MasterBrands::find()->all(), 'id', 'nama'),
+				'value' => function ($data) {
+	
+					return $data->brand->nama;
+	
+				},
+	
+			],
            
         ],
     ]) ?>
-  <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
+    <br>
+    <?php $t = "add-image?id=".$model->id;?>
+        <div class="row">
+            <div class="col-md-1">
+                <?= Html::a('Add Image', $t, ['class' => 'btn btn-success']) ?><br><br>
+            </div>
+            <div class="col-md-2">
+            <?= Html::a('View Images', 'view-image?id='.$model->id, ['class' => 'btn btn-info']) ?><br><br>
+            </div>
+        </div>
+        <div class="row">
+        <?php foreach($modelImage as $image){?>
+            <?php echo '<div class="col-md-3">
+                <img src="../../../data/products/'.$image->image.'" style="width:200px;" />
+            </div>'?>
+        <?php }?>
+        </div>
 </div>

@@ -9,11 +9,11 @@ use yii\helpers\ArrayHelper;
 use app\models\Brands;
 use app\models\Category;
 
-$this->title = "Product";
+$this->title = "Collection";
 ?>
 <div class="row">
     <div class="col-md-12">
-        <h3>Product</h3>
+        <h3>Collection</h3>
         <hr/>
        
     </div>
@@ -21,31 +21,11 @@ $this->title = "Product";
 
 <?php $form = ActiveForm::begin(); ?>
 <?= $form->field($model, 'name')->textInput()?>
-<?=
-  
-        $form->field($model, 'brandid')->widget(Select2::classname(), [
-            'data' =>  ArrayHelper::map(Brands::find()->all(),'id','name'),
-            'options' => ['placeholder' => 'Select brand ...'],
-            'pluginOptions' => [
-                'allowClear' => true
-            ],
-        ])->label('Brand');
-        
-?>
-<?=
-  
-        $form->field($model, 'categoryid')->widget(Select2::classname(), [
-            'data' =>  ArrayHelper::map(Category::find()->all(),'id','name'),
-            'options' => ['placeholder' => 'Select category ...'],
-            'pluginOptions' => [
-                'allowClear' => true
-            ],
-        ])->label('Category');
-        
-?>
-<?= $form->field($model, 'description')->textArea(['rows'=>5])?>
-<?= $form->field($model, 'youtube')->textInput()?>
-
+<?= $form->field($model, 'image_banner')->fileInput() ?>
+    <?php  if($model->image_banner){ ?>
+            <?=   Html::img('../../../data/collections/'. $model['image_banner'],['width' => '20%']);?>
+    <?php   } ?>
+<br><br>
 <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']); ?>
 
 

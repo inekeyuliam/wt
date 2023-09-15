@@ -9,11 +9,11 @@ use yii\helpers\ArrayHelper;
 use app\models\HighlightBrands;
 use app\models\MasterItems;
 
-$this->title = "Highlighted Item";
+$this->title = "Item Highlighted";
 ?>
 <div class="row">
     <div class="col-md-12">
-        <h3>Highlighted Item</h3>
+        <h3>Item Highlighted</h3>
         <hr/>
        
     </div>

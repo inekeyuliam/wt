@@ -149,9 +149,10 @@ class ProductsController extends Controller
     public function actionView($id)
     {
         $model = Product::findOne($id);
-        
+        $modelImage = MasterProductImage::find()->where(['item_id'=>$id])->all();
         return $this->render('view', [
             'model' => $model,
+            'modelImage' => $modelImage
         ]);
     }
 

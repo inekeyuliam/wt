@@ -3,8 +3,9 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\MasterProducts;
-use app\models\MasterProductsSearch;
+use app\models\MasterItems;
+use app\models\MasterProductImage;
+use app\models\MasterItemsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,7 +36,7 @@ class MasterProductsController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new MasterProductsSearch();
+        $searchModel = new MasterItemsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -52,11 +53,77 @@ class MasterProductsController extends Controller
      */
     public function actionView($id)
     {
+        $model = MasterItems::findOne($id);
+        $modelImage = MasterProductImage::find()->where(['item_id'=>$id])->all();
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'modelImage' => $modelImage
         ]);
     }
+    public function actionAddImage($id)
+    {
+        $model = MasterItems::findOne($id);
+        $modelImage = new MasterProductImage();
+        $post = Yii::$app->request->post();
 
+        if (Yii::$app->request->isPost) {
+            $modelImage->image = UploadedFile::getInstances($modelImage, 'image');
+            foreach ($modelImage->image as $image) {
+                $image->saveAs('../../data/products/' . $image->baseName . '.' . $image->extension);
+                $new = new MasterProductImage();
+                $new->item_id = $id;
+                $new->image = $image->baseName . '.' . $image->extension;
+                $new->save();
+            }
+           
+            return $this->redirect(['view?id='.$id]);
+          
+        }
+       
+        return $this->render('add-image', [
+            'model' => $modelImage,
+        ]);
+    }
+    public function actionViewImage($id)
+    {
+        $model = MasterProductImage::find()->where(['item_id'=>$id])->all();
+        $modelId = $id;
+        return $this->render('view-image', [
+            'model' => $model,
+            'modelid' => $modelId
+        ]);
+    }
+    public function actionUpdateImage($id)
+    {
+        $model = MasterProductImage::findOne($id);
+        $img_lama = $model->image;
+
+        if (Yii::$app->request->post()) {
+            $img_baru = UploadedFile::getInstance($model, 'image');
+
+            if(empty($img_baru)){
+                $model->image = $img_lama;
+            }else{
+                $model->image = UploadedFile::getInstance($model, 'image');
+
+                if(!empty($model->image)){
+                    $model->image->saveAs('../../data/products/' . $model->image->baseName . '.' . $model->image->extension);
+                }  
+            }
+            if($model->save()){
+                return $this->redirect(['view-image?id='.$model->item->id]);
+            }
+        } 
+        return $this->render('update-image', [
+            'model' => $model,
+        ]);
+    }
+    public function actionDeleteImage($id)
+    {
+        $model = MasterProductImage::findOne($id);
+        $model->delete();
+        return $this->redirect(Yii::$app->request->referrer);
+    }
     /**
      * Creates a new MasterJenisAkta model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -64,7 +131,7 @@ class MasterProductsController extends Controller
      */
     public function actionCreate()
     {
-        $model = new MasterProducts();
+        $model = new MasterItems();
 
         $post = Yii::$app->request->post();
 
@@ -141,7 +208,7 @@ class MasterProductsController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = MasterProducts::findOne($id)) !== null) {
+        if (($model = MasterItems::findOne($id)) !== null) {
             return $model;
         }
 

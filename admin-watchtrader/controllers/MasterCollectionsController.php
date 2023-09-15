@@ -69,10 +69,10 @@ class MasterCollectionsController extends Controller
         $post = Yii::$app->request->post();
 
         if ($model->load(Yii::$app->request->post()) ) {
-            $model->image = UploadedFile::getInstance($model, 'image');
+            $model->image_banner = UploadedFile::getInstance($model, 'image_banner');
 
             if ($model->validate()) {                
-                $model->image->saveAs('../../data/collections/' . $model->image->baseName . '.' . $model->image->extension);
+                $model->image_banner->saveAs('../../data/collections/' . $model->image_banner->baseName . '.' . $model->image_banner->extension);
 
                 if($model->save()){
                     return $this->redirect(['index']);
@@ -95,18 +95,18 @@ class MasterCollectionsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $img_lama = $model->image;
+        $img_lama = $model->image_banner;
 
         if ($model->load(Yii::$app->request->post())) {
-            $img_baru = UploadedFile::getInstance($model, 'image');
+            $img_baru = UploadedFile::getInstance($model, 'image_banner');
 
             if(empty($img_baru)){
-                $model->image = $img_lama;
+                $model->image_banner = $img_lama;
             }else{
-                $model->image = UploadedFile::getInstance($model, 'image');
+                $model->image_banner = UploadedFile::getInstance($model, 'image_banner');
 
-                if(!empty($model->image)){
-                    $model->image->saveAs('../../data/collections/' . $model->image->baseName . '.' . $model->image->extension);
+                if(!empty($model->image_banner)){
+                    $model->image_banner->saveAs('../../data/collections/' . $model->image_banner->baseName . '.' . $model->image_banner->extension);
                 }  
             }
             if($model->save()){

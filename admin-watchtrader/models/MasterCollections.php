@@ -8,7 +8,8 @@ class MasterCollections extends \yii\db\ActiveRecord
 {
     public function rules() {
       return [       
-         [['name','image_banner'],'required'],
+         [['name'],'required'],
+         [['image_banner'],'safe']
        ];
      
     }

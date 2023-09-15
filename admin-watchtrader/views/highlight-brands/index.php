@@ -32,7 +32,16 @@ $this->params['breadcrumbs'][] = $this->title;
 			[
 
 				'attribute' => 'brand_id',
-                'filter' => ArrayHelper::map(MasterBrands::find()->all(), 'id', 'nama'),
+                'filter' => \kartik\select2\Select2::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'brand_id',
+                    'data' => ArrayHelper::map(MasterBrands::find()->all(), 'id', 'nama'),
+                    'options' => ['placeholder' => ' '],
+                            'language' => 'en',
+                            'pluginOptions' => [
+                                'allowClear' => true,
+                            ],
+                ]),
 				'value' => function ($data) {
 	
 					return $data->brand->nama;

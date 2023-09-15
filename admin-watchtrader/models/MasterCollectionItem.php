@@ -4,11 +4,11 @@ namespace app\models;
 
 use Yii;
 
-class MasterCollections extends \yii\db\ActiveRecord
+class MasterCollectionItem extends \yii\db\ActiveRecord
 {
     public function rules() {
       return [       
-         [['item_id'],'safe'],
+         [['item_id','collection_id'],'required'],
        ];
      
     }
@@ -32,12 +32,16 @@ class MasterCollections extends \yii\db\ActiveRecord
     {
         return [
             'item_id' => 'Item',
+            'collection_id' => 'Collection'
         ];
     }
-    public function getItems()
+    public function getItem()
     {
         return $this->hasOne(MasterItems::classname(), ['id' => 'item_id']);
     }
- 
+    public function getCollection()
+    {
+        return $this->hasOne(MasterCollections::classname(), ['id' => 'collection_id']);
+    }
    
 }

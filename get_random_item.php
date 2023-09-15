@@ -19,6 +19,15 @@
 		$data['Total'] = $totalItems;
 		$data['Data'] = [];
 		while($row = mysqli_fetch_array($result)){
+			$str_image = 'select * from image_item where item_id = '. $row["id_item"] .' limit 1';
+			$sql_image = mysqli_query($conn,$str_image);
+			$row_image = mysqli_fetch_array($sql_image);
+			$img = '';
+			if($row_image['image']){
+				$img = '<img class="item-product" src="data/products/'.$row_image['image'].'">';
+			}else{
+				$img = '<img class="item-product" src="assets/img/1.png" alt="Image 1">';
+			}
 			$id = $row['id_item'];
 			$namaItem =  $row['nama'];
 			$namaBrand = $row['brand'];
@@ -26,7 +35,7 @@
 			$price = number_format($row['price'],0,',','.');
 			$kodeBarang = $row['kode_barang'];
 			$tag = $row['tag'];
-			array_push($data['Data'], ['ID' =>$id,'Nama' => $namaItem, 'Price' => $price,'KodeBarang' => $kodeBarang, 'Tag'=> $tag, 'Harga' => $price, 'Brand' => $namaBrand, 'Category' => $namaCat]);
+			array_push($data['Data'], ['ID' =>$id,'Image'=>$img,'Nama' => $namaItem, 'Price' => $price,'KodeBarang' => $kodeBarang, 'Tag'=> $tag, 'Harga' => $price, 'Brand' => $namaBrand, 'Category' => $namaCat]);
 
 
 		}

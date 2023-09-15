@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
 /* @var $searchModel app\models\MasterUserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Highlighted Items';
+$this->title = 'Item Highlighted';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="master-user-index">
@@ -32,8 +32,18 @@ $this->params['breadcrumbs'][] = $this->title;
             
 			[
 
-				'attribute' => 'brand_id',
-                'filter' => ArrayHelper::map(HighlightBrands::find()->all(), 'id', 'nama'),
+				'attribute' => 'highlighted_brand_id',
+                'filter' => \kartik\select2\Select2::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'highlighted_brand_id',
+                    'data' => ArrayHelper::map(HighlightBrands::find()->where(['flag'=>1])->all(), 'id', 'name'),
+                    'options' => ['placeholder' => ' '],
+                            'language' => 'en',
+                            'pluginOptions' => [
+                                'allowClear' => true,
+                            ],
+                ]),
+                'contentOptions' => ['style' => 'min-width:200px;'],
 				'value' => function ($data) {
 	
 					return $data->highlightbrand->brand->nama;
@@ -43,8 +53,17 @@ $this->params['breadcrumbs'][] = $this->title;
 			],
             [
                 'label'=>'Item',
-				'attribute' => 'brand_id',
-                'filter' => ArrayHelper::map(MasterItems::find()->all(), 'id', 'nama'),
+				'attribute' => 'item_id',
+                'filter' => \kartik\select2\Select2::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'item_id',
+                    'data' => ArrayHelper::map(MasterItems::find()->where(['flag'=>1])->all(), 'id', 'nama'),
+                    'options' => ['placeholder' => ' '],
+                            'language' => 'en',
+                            'pluginOptions' => [
+                                'allowClear' => true,
+                            ],
+                ]),
 				'value' => function ($data) {
 	
 					return $data->item->nama;

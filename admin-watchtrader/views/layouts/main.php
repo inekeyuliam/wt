@@ -57,19 +57,13 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
               
-              ['label' => 'Home','url' => ['/home/index']],
-              ['label' => 'About', 'url' => ['/about/index']],
-              ['label' => 'Config', 'url' => ['/config/index']],
-              ['label' => 'Contact', 'url' => ['/contact/index']],
-              ['label' => 'Dealers', 'url' => ['/dealers/index']],
-              ['label' => 'Events', 'url' => ['/event/index']],
-              ['label' => 'Artists', 'url' => ['/artists/index']],
+             
               ['label' => 'Master Data',  
                 'items' => [
                     ['label' => 'Master User', 'url' => ['/master-user/index']],
                     ['label' => 'Master Highlighted Brand', 'url' => ['/highlight-brands/index']],
-                    ['label' => 'Master Highlighted Items', 'url' => ['/highlight-brand-items/index']],
-                    ['label' => 'Master Product Image', 'url' => ['/products/index']],
+                    ['label' => 'Master Items Highlighted', 'url' => ['/highlight-brand-items/index']],
+                    ['label' => 'Master Products', 'url' => ['/master-products/index']],
                     ['label' => 'Master Collections', 'url' => ['/master-collections/index']],
                     ['label' => 'Master Item Collection', 'url' => ['/master-item-collection/index']],
 

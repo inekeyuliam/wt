@@ -11,7 +11,7 @@ use yii\helpers\ArrayHelper;
 /* @var $searchModel app\models\MasterUserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Master Product';
+$this->title = 'Master Collections';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="master-user-index">
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Add', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -31,26 +31,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn','header'=>'No'],
 
             'name',
-
+           
 			[
 
-				'attribute' => 'brandid',
-                'filter' => ArrayHelper::map(Brands::find()->all(), 'id', 'name'),
-
+				'attribute' => 'img',
+				'format' => 'html',
+				'label' => 'Image',
+	
 				'value' => function ($data) {
 	
-					return $data->brand->name;
+					return Html::img('../../../data/collections/' . $data['image_banner'],
 	
-				},
-	
-			],
-            [
-
-				'attribute' => 'categoryid',
-                'filter' => ArrayHelper::map(Category::find()->all(), 'id', 'name'),
-				'value' => function ($data) {
-	
-					return $data->category->name;
+						['width' => '100px']);
 	
 				},
 	
